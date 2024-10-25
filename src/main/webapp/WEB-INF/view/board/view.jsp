@@ -53,11 +53,11 @@
                     <i class="fa-solid fa-trash-can"></i>
                     삭제
                 </button>
+                <a class="btn btn-outline-primary" href="/board/edit?id=${board.id}">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    수정
+                </a>
             </c:if>
-            <a class="btn btn-outline-primary" href="/board/edit?id=${board.id}">
-                <i class="fa-solid fa-pen-to-square"></i>
-                수정
-            </a>
 
             <c:if test="${hasAccess}">
                 <form id="deleteForm1" class="d-none" action="/board/delete" method="post">
