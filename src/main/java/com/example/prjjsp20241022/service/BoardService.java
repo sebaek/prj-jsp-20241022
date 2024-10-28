@@ -3,6 +3,7 @@ package com.example.prjjsp20241022.service;
 import com.example.prjjsp20241022.dto.Board;
 import com.example.prjjsp20241022.dto.Member;
 import com.example.prjjsp20241022.mapper.BoardMapper;
+import com.example.prjjsp20241022.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,7 @@ import java.util.Map;
 public class BoardService {
 
     private final BoardMapper mapper;
+    private final MemberMapper memberMapper;
 
     public void add(Board board, Member member) {
         mapper.insert(board, member);
@@ -65,7 +67,8 @@ public class BoardService {
     }
 
     public Board get(Integer id) {
-        return mapper.selectById(id);
+        Board board = mapper.selectById(id);
+        return board;
     }
 
     public void remove(Integer id, Member member) {
